@@ -1,30 +1,41 @@
-**== Soal 2 ==**
-Mengapa perlu memahami Dart sebelum menggunakan Flutter?
+**== Question 1 ==**
+![alt text](img/Codelab02Results.png)
 
-Karena Flutter dibangun di atas bahasa pemrograman Dart. Jika tidak menguasai dasar Dart, maka akan sulit untuk:
+Code Explanation: 
 
-* Menyusun logika aplikasi
-* Mengatur state, variabel, serta fungsi
-* Membuat struktur file, class, dan widget dengan benar
+* void main() → This is the entry point of a Dart program. Every Dart program starts from the main() function.
+* for (int i = 0; i < 10; i++) → This is a for loop that repeats 10 times, starting from i = 0 until i < 10.
+* print(...) → This function prints text to the console.
+* '${20 - i}' → This is string interpolation in Dart. It inserts the result of an expression (20 - i) into the string.
 
-Dengan memahami Dart lebih dulu, proses belajar Flutter akan lebih cepat, terarah, dan efisien.
+**== Question 2 ==**
+*Why is it important to understand Dart before using Flutter?*
 
----
+Because Flutter is built on top of the Dart programming language. Without understanding Dart basics, it would be difficult to:
+* Build application logic
+* Manage state, variables, and functions
+* Create proper file, class, and widget structures
 
-**== Soal 3 ==**
-Poin Penting dari Codelab:
-
-* Mengenal struktur dasar program Dart seperti `main()`, `print()`, dan `for`
-* Belajar tipe data dan penggunaan variabel
-* Memahami konsep perulangan menggunakan `for loop`
-* Menerapkan interpolasi string dengan `${}`
-* Mengetahui pentingnya penamaan kode yang rapi dan deskriptif
-* Menjadi fondasi awal sebelum masuk ke pembahasan widget dan state di Flutter
+By learning Dart first, the Flutter learning process will be faster, more structured, and more efficient.
 
 ---
 
-**== Soal 4 ==**
-Perbedaan *null safety* dan *late variable* di Dart:
+**== Question 3 ==**
+*Key Points from Codelab:*
 
-* **Null Safety**: Fitur yang memastikan variabel tidak bernilai `null` secara default, sehingga dapat mencegah error ketika program dijalankan.
-* **Late**: Kata kunci untuk memberi tahu Dart bahwa variabel akan diinisialisasi belakangan, namun tetap dijamin bukan `null`.
+* Understanding Dart’s basic structure such as main(), print(), and for
+* Learning about data types and variables
+* Using loops with for
+* Applying string interpolation with ${}
+* Writing clean and descriptive code names
+* Building a strong foundation before moving on to widgets and state management in Flutter
+---
+
+**== Question 4 ==**
+Difference between *Null Safety* and *Late Variable* in Dart:
+
+**Null Safety** → Ensures that variables are non-nullable by default, preventing runtime errors caused by null values.
+**Late Variable** → A keyword used when you want to initialize a variable later, but you guarantee that it will be given a value before it’s used.
+
+*Example :*
+![alt text](img/Codelab02-P4-Results.png)
