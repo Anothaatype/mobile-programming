@@ -158,48 +158,64 @@ Function is a block of code designed to perform a specific task, and it can be c
 
 ## **03.Jelaskan jenis-jenis parameter di Functions beserta contoh sintaksnya!**
 **1. Positional Parameters**
+
 ![alt text](<img/Tugas Praktikum/Positional Parameters.png>)
+
 Definition: Parameters that are passed in a fixed order.
 Behavior: When calling the function, you must supply arguments in the same order as defined.
 Use case: Best when parameters are required and order is natural (e.g., width, height).
 
 **2. Optional Positional Parameters ([])**
+
 ![alt text](<img/Tugas Praktikum/Optional Positional Parameter.png>)
+
 Definition: Parameters that can be skipped, marked inside square brackets.
 Behavior: If no value is provided, they default to null unless you assign a default value.
 Use case: Useful when an argument is not always required.
 
 **3. Named Parameters ({})**
+
 ![alt text](<img/Tugas Praktikum/Named Parameters.png>)
+
 Definition: Parameters passed using their names, defined inside curly braces.
 Behavior: The caller must specify the parameter name. By default, named parameters are optional.
 Use case: Improves readability, especially when a function has many parameters.
 
 **4. Default Parameters**
+
 ![alt text](<img/Tugas Praktikum/Default Parameter Values.png>)
+
 Definition: Named or optional parameters can have default values.
 Behavior: If the caller doesn’t pass a value, the default is used.
 Use case: Helps avoid null checks by ensuring parameters always have a value.
 
 ## **04.Jelaskan maksud Functions sebagai first-class objects beserta contoh sintaknya!**\
+
 ![alt text](<img/Tugas Praktikum/Functions First Class Objects.png>)
+
 In Dart, functions are objects. This means they can:
 - Be stored in variables
 - Be passed as parameters
 - Be returned from other functions
 
 ## **05.Apa itu Anonymous Functions? Jelaskan dan berikan contohnya!**\
+
 ![alt text](<img/Tugas Praktikum/Anonymous Functions.png>)
+
 Anonymous functions are functions without a name. They are often used directly as arguments or expressions.
 
 ## **06.Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!**\
 **A. Lexical Scope**
+
 ![alt text](<img/Tugas Praktikum/Lexical Scope.png>)
+
 - Definition: Lexical scope means that the scope of a variable is determined by where it is written in the code, not by where it is called.
 - Dart uses static (lexical) scoping, so a function can only access variables that are declared in its own scope or any outer scope.
 
 **B. Lexical Closures**
+
 ![alt text](<img/Tugas Praktikum/Lexical Closure.png>)
+
 - Definition: A closure is a function object that has access to variables from its lexical scope, even after that scope has finished execution.
 - In other words, a closure "remembers" variables from the environment in which it was created.
 
@@ -207,21 +223,29 @@ Anonymous functions are functions without a name. They are often used directly a
 Actually Dart does not directly support returning multiple values like some languages, but there are several techniques to achieve it.
 
 **1. Using a List**
+
 ![alt text](<img/Tugas Praktikum/Using a List.png>)
+
 - Explanation: Put all values inside a List and return it.
 - Limitation: Values are accessed by index, so readability may suffer.
 
 **2. Using a Map**
+
 ![alt text](<img/Tugas Praktikum/Using Map.png>)
+
 - Explanation: Use key–value pairs to make results more descriptive.
 - Advantage: Clearer than a list since you use keys.
 
 **3. Using a Class (Custom Object)**
+
 ![alt text](<img/Tugas Praktikum/Using Class.png>)
+
 - Explanation: Create a model class to hold multiple return values.
 - Advantage: Best for complex results; gives type safety.
 
 **4. Using Records (Dart 3+)**
+
 ![alt text](<img/Tugas Praktikum/Using Record Type.png>)
+
 - Explanation: Records allow returning multiple typed values without creating a class.
 - Advantage: Very clean, strongly typed, and destructurable.
