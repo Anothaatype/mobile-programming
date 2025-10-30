@@ -1,21 +1,21 @@
 ### 1. Complete Practicals 1 and 2, then document and upload screenshots of each work result along with explanations in a file README.md! If there are any errors or code that doesn't work, please correct them according to the application's purpose!
 #### PRACTICAL 1 
 <p align="center">
-  
+  img/1.gif
 </p>
 
 In Practical 1, we built a camera feature with Flutter’s camera package that lets users capture photos with their device.
 
 #### PRACTICAL 2 
 <p align="center">
- `
+ img/2.gif
 </p>
 
 In Practical 2, the task extended the functionality by integrating a filter carousel, enabling users to preview and apply filters to the photo taken.
 
 ### 2. Combine the results of lab 1 with the results of lab 2 so that after taking the photo, you can create a carousel filter!
 <p align="center">
-  
+  img/3.gif
 </p>
 
 After combining both practicals, the app flow becomes:
