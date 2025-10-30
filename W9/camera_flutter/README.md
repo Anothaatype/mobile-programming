@@ -4,7 +4,7 @@
   
 </p>
 
-In Practical 1, the task was to implement a camera feature using the camera package in Flutter. The app allows users to take a photo using the device’s camera.
+In Practical 1, we built a camera feature with Flutter’s camera package that lets users capture photos with their device.
 
 #### PRACTICAL 2 
 <p align="center">
