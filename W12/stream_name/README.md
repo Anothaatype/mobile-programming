@@ -71,40 +71,71 @@ The keyword yield* in that code is used inside an async* generator function to f
 
 ## **Praktikum 4 Subscribe ke stream events**
 ### **Soal 9**
-- Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
+* Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
     *Step 2: In this step, the initState() method is updated so the widget begins actively listening to the number stream using stream.listen(). Each incoming value triggers setState(), which updates lastNumber and refreshes the UI. Errors are also handled here, ensuring that any issue in the stream results in lastNumber being set to -1.
 
     *Step 6: In this step, the dispose() method is enhanced by adding subscription.cancel(), which safely stops the stream listener when the widget is removed from the screen. This prevents memory leaks and ensures system resources are properly released.
 
     *Step 8: In this step, the addRandomNumber() method is modified so it first checks whether the stream controller is still open before sending new numbers. If the controller is closed, the UI updates lastNumber to -1; otherwise, a new random value is added to the stream, maintaining safe and controlled data flow.
 
-- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
-- Lalu lakukan commit dengan pesan "W12: Jawaban Soal 9".
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+* Lalu lakukan commit dengan pesan "W12: Jawaban Soal 9".
 
 ![alt text](images/P4-Soal9.gif)
 
 ## **Praktikum 5 Multiple stream subscriptions**
 ### **Soal 10**
-- Jelaskan mengapa error itu bisa terjadi ?
+* Jelaskan mengapa error itu bisa terjadi ?
     * The error "Bad state: Stream has already been listened to" occurs because a Stream in Dart/Flutter is fundamentally a single-subscription data channel by default, meaning that once the first listener begins consuming data from the Stream, that Stream is closed to any subsequent listeners, and any attempt to listen to it again will trigger this specific error. This typically happens when the Stream is created, listened to by one widget (perhaps in a method like initState() or a repeatedly called build() method), and then another attempt is made to subscribe to the exact same Stream instance later in the code, such as after a hot reload or in another part of the application lifecycle.
 
 ### **Soal 11**
-- Jelaskan mengapa hal itu bisa terjadi ?
+* Jelaskan mengapa hal itu bisa terjadi ?
 
     * This behavior occurs because the application's Stream (likely handled by a StreamController) has more than one active listener simultaneously receiving data from the same source, or because the code processes each value sent to the Stream twice via two separate widgets or functions that are both subscribing to the Stream. Since the 'New Random Number' button sends a single new value to the Stream with each press, and that value appears twice, it indicates a duplicate processing of the Stream data, where the single value emitted by the Stream is displayed in the UI by two different operations tied to the same Stream, or the Stream has been converted to a broadcast Stream which allows multiple listeners, but the single value is processed by two separate listeners, causing each number to be appended twice.
 
-- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
-- Lalu lakukan commit dengan pesan "W12: Jawaban Soal 10,11"
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+* Lalu lakukan commit dengan pesan "W12: Jawaban Soal 10,11"
 
 ![alt text](images/P5-Soal11.gif)
 
-## **Praktikum 5 Multiple stream subscriptions**
+## **Praktikum 6 StreamBuilder**
 ### **Soal 12**
-- Jelaskan maksud kode pada langkah 3 dan 7 !
+* Jelaskan maksud kode pada langkah 3 dan 7 !
 
     * Step 3: The primary goal of Step 3 is to establish a continuous, asynchronous data source by defining the NumberStream class, which contains the getNumbers() method. This method is designated as an async* generator that utilizes yield* Stream.periodic to repeatedly execute a callback function every one second; inside this function, a new Random object generates an integer between 0 and 9, and this generated number is then sequentially emitted by the Stream, effectively creating a dedicated channel that constantly broadcasts a new random value every second.
 
     * Step 7: focuses on the crucial task of rendering the user interface (UI) based on the stream's output by implementing the StreamBuilder widget inside the build() method. The StreamBuilder is configured to subscribe directly to the previously created numberStream using initialData: 0 for the first render; its builder function acts as a reactive listener that checks the incoming snapshot status, and specifically uses the if (snapshot.hasData) condition to extract the latest integer value from the stream, which is then dynamically converted and displayed as a large text element at the center of the screen, guaranteeing that the UI updates immediately whenever a new number is broadcast.
 
-- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
-- Lalu lakukan commit dengan pesan "W12: Jawaban Soal 12".
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+* Lalu lakukan commit dengan pesan "W12: Jawaban Soal 12".
+
+![alt text](images/P6-Soal12.gif)
+
+## **Praktikum 7 Multiple stream subscriptions**
+### **Soal 13**
+* Jelaskan maksud praktikum ini ! Dimanakah letak konsep pola BLoC-nya ?
+import 'dart:math';: Mengimpor pustaka yang diperlukan untuk menghasilkan angka acak (Random).
+
+class NumberStream: Kelas yang bertanggung jawab untuk membuat stream angka.
+
+Stream<int> getNumbers() async*: Metode yang mengembalikan stream integer. Penggunaan async* menandakan bahwa fungsi ini adalah generator asinkron.
+
+yield* Stream.periodic(const Duration(seconds: 1), (int t) { ... });: Ini adalah inti dari kode.
+
+Stream.periodic: Membuat stream yang secara berkala (dalam hal ini, setiap 1 detik) menghasilkan suatu nilai.
+
+Closure (int t) { ... }: Fungsi yang dieksekusi setiap detik.
+
+Random random = Random();: Membuat objek random baru. (Catatan: Sebaiknya objek Random dibuat di luar closure dan diinisialisasi hanya sekali untuk efisiensi yang lebih baik).
+
+int myNum = random.nextInt(10);: Menghasilkan angka integer acak antara 0 hingga 9.
+
+return myNum;: Nilai ini yang dihasilkan oleh stream setiap detik.
+
+yield*: Mengirimkan nilai-nilai dari stream periodik tersebut ke stream yang dikembalikan oleh getNumbers().
+
+Apakah Anda ingin saya memberikan contoh cara menggunakan atau "mendengarkan" stream ini?
+* Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+* Lalu lakukan commit dengan pesan "W12: Jawaban Soal 13".
+
+![alt text](images/P7-Soal13.gif)
